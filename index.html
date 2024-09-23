@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Impede o zoom -->
+    <title>Calculadora de Escanteios</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS externo -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+        .protest-guerrilla-regular {
+            font-family: "Protest Guerrilla", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="team-container" id="team-container">
+        <h2 class="protest-guerrilla-regular">Time da Casa</h2>
+        <h2 class="protest-guerrilla-regular">Time de Fora</h2>
+    </div>
+
+    <div class="fields-container" id="fields-container">
+        <div id="fields">
+            <div id="fields-home">
+                <!-- Campos do time da casa serão inseridos aqui -->
+            </div>
+            <div id="fields-away">
+                <!-- Campos do time de fora serão inseridos aqui -->
+            </div>
+        </div>
+    </div>
+
+    <div class="select-container">
+        <label for="num-campos" class="dropdown-label protest-guerrilla-regular">Escolha o número de partidas 👉</label>
+        <select id="num-campos" onchange="mostrarCampos()" class="styled-dropdown protest-guerrilla-regular">
+            <option value="">Escolha</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+
+    <button class="calcular-btn protest-guerrilla-regular" onclick="calcular()">📲 Calcular Resultados 📲</button>
+
+    <div class="progress-container" style="display: none;">
+        <div class="progress-bar" id="progress-bar">
+            <span id="progress-text">0%</span>
+        </div>
+    </div>
+    
+    <div class="result-container" id="resultados" style="display: none;">
+        <div class="results-grid">
+            <div class="results-column left-column">
+                <p id="acima45"></p>
+                <p id="acima55"></p>
+                <p id="acima65"></p>
+                <p id="acima75"></p>
+                <p id="acima85"></p>
+                <p id="acima95"></p>
+                <p id="acima105"></p>
+                <p id="acima115"></p>
+            </div>
+            <div class="results-column right-column">
+                <p id="acima125"></p>
+                <p id="acima135"></p>
+                <p id="abaixo10"></p>
+                <p id="abaixo12"></p>
+                <p id="abaixo13"></p>
+                <p id="abaixo14"></p>
+                <p id="abaixo15"></p>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="voltar-btn protest-guerrilla-regular" style="display: none;" onclick="voltar()"> 🏠 Voltar Para Tela Inicial 🏠</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
