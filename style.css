@@ -1,283 +1,232 @@
-/* Estilos Globais */
-* {
-    box-sizing: border-box; /* Inclui padding e border nas dimensões */
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif; /* Uso de fonte padrão */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
     margin: 0;
     padding: 20px;
-    background-color: #f0f4f8; /* Fundo levemente azulado */
-    color: #000000; /* Cor padrão do texto */
+    min-height: 100vh;
+    color: #333;
 }
 
-h2 {
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+h1 {
     text-align: center;
-    color: black; /* Cor mais escura para o cabeçalho */
-    font-weight: 700; /* Negrito */
+    color: #1a237e;
+    margin-bottom: 50px;
+    font-size: 3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 60px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Estilos do contêiner das equipes */
-.team-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 30px 0 20px; /* Margem superior e inferior */
-    width: 100%;
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, #3f51b5, #5c6bc0);
+    border-radius: 3px;
 }
 
-/* Estilos do contêiner de campos */
-.fields-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #bdc3c7; /* Borda sutil */
-    border-radius: 8px;
-    background-color: #ffffff; /* Fundo branco */
-    max-height: 400px; /* Altura máxima */
-    overflow-y: auto; /* Permite rolagem vertical */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 20px;
 }
 
-/* Estilos dos campos */
-#fields {
-    display: flex;
-    width: 100%;
-}
-
-#fields-home,
-#fields-away {
-    flex: 1;
-    margin: 0 20px; /* Margem lateral para os campos */
-}
-
-.field-container {
-    margin: 15px 0;
+.download-item {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-label.team-name {
-    display: block;
-    font-weight: bold; 
-    margin-bottom: 5px;
+.download-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #3f51b5, #5c6bc0);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.download-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.download-item:hover::before {
+    transform: scaleX(1);
+}
+
+.download-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+.download-item:hover img {
+    transform: scale(1.08);
+}
+
+.download-item h3 {
+    color: #1a237e;
+    margin: 15px 0;
+    font-size: 1.6em;
+    font-weight: 600;
     text-align: center;
-    width: 100%;
+    letter-spacing: 0.5px;
 }
 
-/* Estilos de input de número */
-input[type="number"] {
-    width: 100%; /* Ocupa toda a largura */
-    padding: 10px; /* Espaçamento interno */
-    border: 2px solid #bdc3c7; /* Borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    font-size: 16px; /* Tamanho da fonte */
-    font-weight: bold; /* Define o texto do input como negrito */
-    transition: border-color 0.3s; /* Transição suave de cor */
-}
-
-input[type="number"]:focus {
-    border-color: #3498db; /* Cor ao focar */
-    outline: none; /* Remove o contorno padrão */
-}
-
-/* Estilos do placeholder */
-input[type="number"]::placeholder {
-    color: #bdc3c7; /* Cor do placeholder */
-    opacity: 1; /* Garantir que a opacidade seja 1 para o placeholder */
-}
-
-/* Estilos do botão calcular */
-.calcular-btn {
-    background-color: #2980b9; /* Cor de fundo do botão */
-    color: #ffffff; /* Texto branco */
-    border: none; /* Sem borda */
-    padding: 15px 20px; /* Espaçamento interno */
-    text-align: center; /* Centraliza texto */
-    text-decoration: none; /* Remove sublinhado */
-    display: block; /* Exibe como bloco */
-    font-size: 18px; /* Tamanho da fonte */
-    margin: 20px auto; /* Margem automática para centralizar */
-    cursor: pointer; /* Cursor pointer */
-    border-radius: 5px; /* Bordas arredondadas */
-    transition: background-color 0.3s; /* Transição suave */
-}
-
-.calcular-btn:hover {
-    background-color: #1a5276; /* Cor mais escura ao passar o mouse */
-}
-
-/* Estilos do contêiner de resultados */
-.result-container {
-    margin-top: 20px; /* Margem superior */
-    padding: 20px; /* Espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
-    background-color: #ffffff; /* Fundo branco */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: none; /* Inicialmente oculto */
-    transition: all 0.3s ease; 
-}
-
-/* Estilos das colunas dos resultados */
-.results-grid {
-    display: flex; /* Flexbox para as colunas */
-    justify-content: space-around; /* Espaça as colunas */
-}
-
-.results-column {
-    flex: 1; /* Cada coluna ocupa espaço igual */
-    margin: 10px; /* Margem entre as colunas */
-    background-color: #ecf0f1; /* Fundo em cinza claro */
-    border-radius: 8px; /* Bordas arredondadas */
-    padding: 10px; /* Espaçamento interno */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
-    transition: transform 0.3s;
-    text-align: center; /* Centraliza o texto horizontalmente */
-    font-weight: bolder;
-}
-
-/* Estilo das linhas dos resultados */
-.results-column p {
-    border-top: 1px solid #bdc3c7; /* Linha superior separadora */
-    padding: 10px 0; /* Espaçamento interno */
-    margin: 5px 0; /* Margem vertical entre as linhas */
-    text-align: center; /* Centraliza o texto dentro do parágrafo */
-    color: black;
-}
-
-/* Remove a linha superior do primeiro item */
-.results-column p:first-child {
-    border-top: none;
-}
-
-/* Efeitos de hover nas colunas */
-.results-column:hover {
-    transform: scale(1.02); /* Efeito de aumento ao passar o mouse */
-}
-
-/* Estilos do contêiner de progresso */
-.progress-container {
-    width: 80%; /* Largura do contêiner de progresso */
-    max-width: 600px; /* Largura máxima */
-    height: 20px; /* Altura do contêiner */
-    background-color: #e0e0e0; /* Cor de fundo */
-    border-radius: 5px; /* Bordas arredondadas */
-    position: absolute; /* Posição absoluta */
-    top: 50%; /* Centraliza verticalmente */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Corrige a centralização */
-    display: flex; /* Exibe como flex */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra leve */
-}
-
-/* Estilos da barra de progresso */
-.progress-bar {
-    height: 100%; /* Altura total */
-    width: 0; /* Largura inicial */
-    background-color: #3498db; /* Cor da barra de progresso */
-    border-radius: 5px; /* Bordas arredondadas */
-    transition: width 0.3s ease; /* Transição suave */
-}
-
-/* Estilos para o texto da barra de progresso */
-#progress-text {
-    position: absolute; /* Posição absoluta */
-    left: 50%; /* Centraliza horizontalmente */
-    top: 50%; /* Centraliza verticalmente */
-    transform: translate(-50%, -50%); /* Corrige a centralização */
-    color: rgb(0, 0, 0); /* Cor do texto */
-    font-weight: bold; /* Negrito */
-}
-
-/* Estilos do contêiner de seleção */
-.select-container {
-    display: flex; /* Exibe como flex */
-    justify-content: center; /* Centraliza os elementos */
-    margin-top: 20px; /* Margem superior */
-}
-
-/* Estilos do rótulo do dropdown */
-.dropdown-label {
-    font-size: 1.3em; /* Tamanho da fonte padrão */
-    color: #000000; /* Cor do texto */
-    margin-right: 10px; /* Margem à direita */
-    font-weight: bold; /* Negrito */
-    margin-top: 5px;
-}
-
-/* Adicionando consulta de mídia para dispositivos móveis */
-@media (max-width: 600px) {
-    .dropdown-label {
-        font-size: 17px; /* Reduz o tamanho da fonte na versão mobile */
-        margin-top: 10px; /* Adiciona margem superior para descer apenas o texto */
-    }
-    .field-container label.team-name {
-        font-size: 14px; /* Reduz o tamanho da fonte do texto "Total de escanteios na partida" */
-    }
-    input[type="number"]::placeholder {
-        font-size: 11px; /* Reduz o tamanho da fonte do placeholder na versão mobile */
-        color: #bdc3c7; /* Cor do placeholder */
-        opacity: 1; /* Mantém a opacidade do placeholder */
-    }
-
-    /* Reduzir o tamanho da fonte dos resultados na versão mobile */
-    .results-column p {
-        font-size: 14px; /* Ajuste o valor conforme necessário */
-    }
-}
-
-/* Estilos do dropdown */
-.styled-dropdown {
-    font-size: 1em; /* Tamanho da fonte */
-    padding: 10px; /* Espaçamento interno */
-    border: 2px solid #bdc3c7; /* Borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #fff; /* Fundo branco */
-    color: #000; /* Cor do texto */
-    transition: border-color 0.3s; /* Transição suave */
-    font-weight: bold; /* Negrito */
-}
-
-.styled-dropdown option {
-    font-weight: bold; /* Negrito */
-    color: #000; /* Cor do texto */
-}
-
-/* Efeitos de hover nos dropdowns */
-.styled-dropdown:hover {
-    border-color: #007BFF; /* Muda a cor da borda ao passar o mouse */
-}
-
-.styled-dropdown:focus {
-    border-color: #0056b3; /* Cor da borda ao focar */
-    outline: none; /* Remove contorno padrão */
-}
-
-/* Estilos do botão Voltar */
-.button-container {
+.download-btn {
+    background: linear-gradient(45deg, #3f51b5, #5c6bc0);
+    color: white;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 20px rgba(63,81,181,0.25);
+    position: relative;
+    overflow: hidden;
     display: flex;
-    justify-content: center; /* Centraliza o botão */
-    margin-top: 20px; /* Margem superior */
+    align-items: center;
+    gap: 10px;
 }
 
-.voltar-btn {
-    background-color: #2980B9; /* Cor de fundo do botão */
-    color: #ffffff; /* Texto branco */
-    border: none; /* Sem borda */
-    padding: 15px 20px; /* Espaçamento interno */
-    text-align: center; /* Centraliza texto */
-    text-decoration: none; /* Remove sublinhado */
-    font-size: 18px; /* Tamanho da fonte */
-    cursor: pointer; /* Cursor pointer */
-    border-radius: 5px; /* Bordas arredondadas */
-    transition: background-color 0.3s; /* Transição suave */
-    display: none; /* Inicialmente oculto */
-    font-family: "Protest Guerrilla", sans-serif; /* Aplica a fonte Protest Guerrilla */
+.download-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
-.voltar-btn:hover {
-    background-color: #1a5276; /* Cor mais escura ao passar o mouse */
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.download-btn:hover::before {
+    left: 100%;
+}
+
+.download-btn:hover {
+    background: linear-gradient(45deg, #5c6bc0, #3f51b5);
+    box-shadow: 0 12px 25px rgba(63,81,181,0.35);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+    .download-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .logo {
+        width: 150px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .download-item {
+        padding: 12px;
+        margin-bottom: 0;
+    }
+    
+    h1 {
+        font-size: 15px;
+        margin-bottom: 20px;
+        padding-top: 30px;
+    }
+    
+    .container {
+        padding: 10px 5px;
+    }
+    
+    .logo {
+        width: 100px;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        left: auto;
+        top: auto;
+    }
+
+    .download-item img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .download-item h3 {
+        font-size: 1em;
+        margin: 8px 0;
+    }
+
+    .download-btn {
+        padding: 8px 20px;
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+
+    .download-icon {
+        width: 16px;
+        height: 16px;
+    }
 }
