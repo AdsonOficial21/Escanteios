@@ -1,86 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Impede o zoom -->
-    <title>Calculadora de Escanteios</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS externo -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
-
-        .protest-guerrilla-regular {
-            font-family: "Protest Guerrilla", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniTV Download</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/cxNqb50.png" type="image/x-icon">
 </head>
 <body>
-
-    <div class="team-container" id="team-container">
-        <h2 class="protest-guerrilla-regular">Time da Casa</h2>
-        <h2 class="protest-guerrilla-regular">Time de Fora</h2>
-    </div>
-
-    <div class="fields-container" id="fields-container">
-        <div id="fields">
-            <div id="fields-home">
-                <!-- Campos do time da casa serão inseridos aqui -->
+    <img src="https://i.imgur.com/cxNqb50.png" alt="Logo" class="logo">
+    <div class="container">
+        <h1>ESCOLHA O DISPOSITIVO PARA BAIXAR</h1>
+        
+        <div class="download-grid">
+            <div class="download-item">
+                <img src="https://i.imgur.com/neEVL2Z.png" alt="TV Box">
+                <h3>TV BOX</h3>
+                <a href="https://unitviptv.page.link/UNTVDW" target="_blank" class="download-btn">
+                    BAIXAR
+                    <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </a>
             </div>
-            <div id="fields-away">
-                <!-- Campos do time de fora serão inseridos aqui -->
+            
+            <div class="download-item">
+                <img src="https://i.imgur.com/iI1E6Tw.png" alt="Stick TV">
+                <h3>STICK TV</h3>
+                <a href="https://unitviptv.page.link/UNTVDW" target="_blank" class="download-btn">
+                    BAIXAR
+                    <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="download-item">
+                <img src="https://i.imgur.com/56nnhls.png" alt="Celular">
+                <h3>CELULAR</h3>
+                <a href="https://unitviptv.page.link/UNMODW" target="_blank" class="download-btn">
+                    BAIXAR
+                    <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="download-item">
+                <img src="https://i.imgur.com/HiaedQg.png" alt="Android TV">
+                <h3>ANDROID TV</h3>
+                <a href="https://unitviptv.page.link/UNTVDW" target="_blank" class="download-btn">
+                    BAIXAR
+                    <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="download-item">
+                <img src="https://i.imgur.com/QgfxGkj.png" alt="Tablet">
+                <h3>TABLET</h3>
+                <a href="https://unitviptv.page.link/UNMODW" target="_blank" class="download-btn">
+                    BAIXAR
+                    <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="download-item">
+                <img src="https://i.imgur.com/qwX9ThQ.png" alt="PC">
+                <h3>COMPUTADOR</h3>
+                <a href="https://unitviptv.page.link/UNTVDW" target="_blank" class="download-btn">
+                    BAIXAR
+                    <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
-
-    <div class="select-container">
-        <label for="num-campos" class="dropdown-label protest-guerrilla-regular">Escolha o número de partidas 👉</label>
-        <select id="num-campos" onchange="mostrarCampos()" class="styled-dropdown protest-guerrilla-regular">
-            <option value="">Escolha</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-    </div>
-
-    <button class="calcular-btn protest-guerrilla-regular" onclick="calcular()">📲 Calcular Resultados 📲</button>
-
-    <div class="progress-container" style="display: none;">
-        <div class="progress-bar" id="progress-bar">
-            <span id="progress-text">0%</span>
-        </div>
-    </div>
-    
-    <div class="result-container" id="resultados" style="display: none;">
-        <div class="results-grid">
-            <div class="results-column left-column">
-                <p id="acima45"></p>
-                <p id="acima55"></p>
-                <p id="acima65"></p>
-                <p id="acima75"></p>
-                <p id="acima85"></p>
-                <p id="acima95"></p>
-                <p id="acima105"></p>
-                <p id="acima115"></p>
-            </div>
-            <div class="results-column right-column">
-                <p id="acima125"></p>
-                <p id="acima135"></p>
-                <p id="abaixo10"></p>
-                <p id="abaixo12"></p>
-                <p id="abaixo13"></p>
-                <p id="abaixo14"></p>
-                <p id="abaixo15"></p>
-            </div>
-        </div>
-        <div class="button-container">
-            <button class="voltar-btn protest-guerrilla-regular" style="display: none;" onclick="voltar()"> 🏠 Voltar Para Tela Inicial 🏠</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
